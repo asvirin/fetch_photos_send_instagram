@@ -19,7 +19,7 @@ def get_images_hubble(filename):
     r = requests.get(url)
     simple = r.json()
     
-    for images_number, images_url in enumerate(simple['image_files']):
+    for images_url in simple['image_files']:
         continue
     extension = '.' + get_file_extension(images_url['file_url'])
     
