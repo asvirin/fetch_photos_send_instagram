@@ -1,5 +1,6 @@
 import requests
 from dotenv import load_dotenv
+load_dotenv()
 
 def fetch_spacex():
     url = "https://api.spacexdata.com/v3/launches"
@@ -13,7 +14,6 @@ def fetch_spacex():
                 
 def get_images_spacex(url, filename):
     r = requests.get(url)
-    load_dotenv()
     dirfile = os.getenv("dirfile")
     fullpath = dirfile + filename
     with open(fullpath, 'wb') as f:  
