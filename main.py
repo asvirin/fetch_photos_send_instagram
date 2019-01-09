@@ -18,5 +18,5 @@ if __name__ == '__main__':
     load_dotenv()
     dirfile = os.getenv("dirfile")
     photos_list = listdir(dirfile)
-    for images_number, filename in enumerate(photos_list):
+    for filename in photos_list:
         send_photos(dirfile, filename)
