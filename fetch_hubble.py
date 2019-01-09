@@ -16,7 +16,6 @@ def get_file_extension(url):
     return url_parts[-1]
 
 def get_images_hubble(filename):
-    fullpath_template = '{}{}{}'
     url = 'http://hubblesite.org/api/v3/image/' + str(filename)
     r = requests.get(url)
     photos_info = r.json()
@@ -28,6 +27,6 @@ def get_images_hubble(filename):
     r = requests.get(images_url['file_url'])
     
     folder_with_pics = os.getenv("folder_with_pics")
-    fullpath = fullpath_template.format(folder_with_pics, str(filename), extension)
+    fullpath = '{}{}{}'.format(folder_with_pics, str(filename), extension)
     with open(fullpath, 'wb') as f:  
         f.write(r.content)
