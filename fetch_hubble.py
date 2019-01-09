@@ -7,8 +7,8 @@ def fetch_hubble(collection_name):
               collection_name: collection_name}
     url = 'http://hubblesite.org/api/v3/images'
     r = requests.get(url, params=params)
-    simple = r.json()
-    for photo_number, photo_info in enumerate(simple):
+    data_request = r.json()
+    for photo_number, photo_info in enumerate(data_request):
         get_images_hubble(photo_info['id'])
         
 def get_file_extension(url):
@@ -18,9 +18,9 @@ def get_file_extension(url):
 def get_images_hubble(filename):
     url = 'http://hubblesite.org/api/v3/image/' + str(filename)
     r = requests.get(url)
-    simple = r.json()
+    data_request = r.json()
     
-    for images_url in simple['image_files']:
+    for images_url in data_request['image_files']:
         continue
     extension = '.' + get_file_extension(images_url['file_url'])
     
