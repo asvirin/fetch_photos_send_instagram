@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from os import listdir
 load_dotenv()
 
-def send_photos(dirfile, filename):
+def send_photo(folder_with_pics, filename):
     username = os.getenv("username")
     password = os.getenv("password")
     example_caption = os.getenv("caption")
@@ -11,11 +11,11 @@ def send_photos(dirfile, filename):
     bot = Bot()
     bot.login(username, password)
 
-    pic = dirfile + filename
+    pic = folder_with_pics + filename
     bot.upload_photo(pic, example_caption)
     
 if __name__ == '__main__':
-    dirfile = os.getenv("dirfile")
-    photos_list = listdir(dirfile)
+    folder_with_pics = os.getenv("folder_with_pics")
+    photos_list = listdir(folder_with_pics)
     for filename in photos_list:
-        send_photos(dirfile, filename)
+        send_photo(folder_with_pics, filename)
