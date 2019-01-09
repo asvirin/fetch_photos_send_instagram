@@ -6,10 +6,11 @@ def fetch_spacex():
     url = "https://api.spacexdata.com/v3/launches"
     r = requests.get(url)
     launches_data = r.json()
+    filename_template = '{}{}{}{}'
 
     for flight_number, flight_info in enumerate(launches_data):
         for image_number, image_url  in enumerate(flight_info['links']['flickr_images']):
-            filename = 'spacex' + str(flight_number)+str(image_number) + '.jpg'
+            filename =  filename_template.format('spacex', str(flight_number), str(image_number), '.jpg')
                 get_images_spacex(image_url, filename)
                 
 def get_images_spacex(url, filename):
