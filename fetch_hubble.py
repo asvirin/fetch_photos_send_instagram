@@ -1,5 +1,6 @@
 import requests
 from dotenv import load_dotenv
+load_dotenv()
 
 def fetch_hubble(collection_name):
     params = {page: 'all', 
@@ -25,7 +26,6 @@ def get_images_hubble(filename):
     
     r = requests.get(images_url['file_url'])
     
-    load_dotenv()
     dirfile = os.getenv("dirfile")
     fullpath = dirfile + str(filename) + extension
     with open(fullpath, 'wb') as f:  
