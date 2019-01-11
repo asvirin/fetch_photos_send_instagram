@@ -27,6 +27,6 @@ def get_images_hubble(filename):
     r = requests.get(images_url['file_url'])
     
     folder_with_pics = os.getenv("folder_with_pics")
-    fullpath = '{}{}{}'.format(folder_with_pics, str(filename), extension)
+    fullpath = '{}{}{}'.format(folder_with_pics, filename, extension)
     with open(fullpath, 'wb') as f:  
         f.write(r.content)
