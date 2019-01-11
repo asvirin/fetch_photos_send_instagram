@@ -1,6 +1,4 @@
 import requests
-from dotenv import load_dotenv
-load_dotenv()
 
 def fetch_hubble(collection_name):
     params = {page: 'all', 
