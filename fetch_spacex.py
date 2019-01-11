@@ -15,6 +15,6 @@ def fetch_spacex():
 def get_images_spacex(url, filename):
     r = requests.get(url)
     folder_with_pics = os.getenv("folder_with_pics")
-    fullpath = folder_with_pics + filename
+    fullpath = '{}{}'.format(folder_with_pics, filename)
     with open(fullpath, 'wb') as f:  
         f.write(r.content)
