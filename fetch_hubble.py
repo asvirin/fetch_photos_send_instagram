@@ -16,7 +16,7 @@ def get_file_extension(url):
     return url_parts[-1]
 
 def get_images_hubble(filename):
-    url = 'http://hubblesite.org/api/v3/image/' + str(filename)
+    url = 'http://hubblesite.org/api/v3/image/{}'.format(filename)
     r = requests.get(url)
     photos_info = r.json()
     
