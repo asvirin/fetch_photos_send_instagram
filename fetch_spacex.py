@@ -9,7 +9,7 @@ def fetch_spacex():
 
     for flight_number, flight_info in enumerate(launches_data):
         for image_number, image_url  in enumerate(flight_info['links']['flickr_images']):
-            filename =  'spacex{}{}.jpg'.format(str(flight_number), str(image_number))
+            filename =  'spacex{}{}.jpg'.format(flight_number, image_number)
             get_images_spacex(image_url, filename)
                 
 def get_images_spacex(url, filename):
