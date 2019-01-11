@@ -1,6 +1,4 @@
 import requests
-from dotenv import load_dotenv
-load_dotenv()
 
 def fetch_spacex():
     url = "https://api.spacexdata.com/v3/launches"
