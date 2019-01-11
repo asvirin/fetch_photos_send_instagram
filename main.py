@@ -1,9 +1,9 @@
 from instabot import Bot
 from dotenv import load_dotenv
 from os import listdir
-load_dotenv()
 
 def main():
+    load_dotenv()
     folder_with_pics = os.getenv("folder_with_pics")
     photos_list = listdir(folder_with_pics)
     username = os.getenv("username")
