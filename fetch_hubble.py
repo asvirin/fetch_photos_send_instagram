@@ -20,11 +20,10 @@ def get_images_hubble(filename):
     
     for images_url in photos_info['image_files']:
         continue
-    extension = '.' + get_file_extension(images_url['file_url'])
-    
-    r = requests.get(images_url['file_url'])
     
     folder_with_pics = os.getenv("folder_with_pics")
-    fullpath = '{}{}{}'.format(folder_with_pics, filename, extension)
+    fullpath = '{}{}.{}'.format(folder_with_pics, filename, get_file_extension(images_url['file_url']))
+    
+    r = requests.get(images_url['file_url'])
     with open(fullpath, 'wb') as f:  
         f.write(r.content)
